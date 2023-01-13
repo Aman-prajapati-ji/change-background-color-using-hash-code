@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Bg Color</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* background-color:#000; */
+            height:95vh;
+            color:#fff;
+        }
+        h1{
+            font-size: 40px;
+            color: black;
+        }
+        span{
+            display: space-between;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hex Color : <span id="hex-value"></span></h1>
+        <button id="changeBg">Change</button>
+    </div>
+    <script>
+        
+        let body = document.querySelector('body');
+        let button = document.querySelector('button');
+        let hex_color = document.querySelector('#hex-value');
+        let hex_codes = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+
+        body.style.backgroundColor = '#FF8844';
+        hex_color.innerHTML = '#FF8844';
+
+        button.addEventListener("click", cg_hex)
+
+        function cg_hex() {
+            let hex = '#'
+            for (let i = 0; i < 6; i++) {
+                let code = Math.floor(Math.random()*hex_codes.length);
+                hex += hex_codes[code];    
+            }
+            body.style.backgroundColor = hex;
+            hex_color.innerHTML = hex;
+        }
+
+    </script>
+</body>
+</html>
